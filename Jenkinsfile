@@ -3,17 +3,17 @@ pipeline{
     stages{
         stage("build"){
             steps{
-                echo "Building the app"
+                echo "Building the app at ${BRANCH_NAME}"
             }
         }
         stage("test"){
             steps{
-                echo "Testing the app"
+                echo "Testing the app at ${BRANCH_NAME}"
             }
         }
         stage("deploy"){
             steps{
-                echo "Deploying the app"
+                echo "Deploying the app at ${BRANCH_NAME}"
             }
         }
     }
