@@ -1,3 +1,4 @@
+def gv
 pipeline{
     agent any
     environment{
@@ -9,6 +10,13 @@ pipeline{
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages{
+        stage("init"){
+            steps{
+                script{
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage("build"){
             steps{
                 echo "Building the app at ${BRANCH_NAME}"
@@ -17,6 +25,10 @@ pipeline{
                 echo "WORKSPACE: ${WORKSPACE}"
                 echo "WORKSPACE_TMP: ${WORKSPACE_TMP}"
                 echo "GITHUB CREDS: ${GITHUB_CREDS}"
+
+                script{
+                    gv.buildApp()
+                }
             }
         }
         stage("test"){
