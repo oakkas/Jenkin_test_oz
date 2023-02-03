@@ -24,7 +24,6 @@ pipeline{
                 echo "NODE_NAME: ${NODE_NAME}"
                 echo "WORKSPACE: ${WORKSPACE}"
                 echo "WORKSPACE_TMP: ${WORKSPACE_TMP}"
-                echo "GITHUB CREDS: ${GITHUB_CREDS}"
 
                 script{
                     gv.buildApp()
