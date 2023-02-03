@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environmnt{
+        GITHUB_CREDS = credentials("github_creds")
+    }
     stages{
         stage("build"){
             steps{
@@ -8,6 +11,7 @@ pipeline{
                 echo "NODE_NAME: ${NODE_NAME}"
                 echo "WORKSPACE: ${WORKSPACE}"
                 echo "WORKSPACE_TMP: ${WORKSPACE_TMP}"
+                echo "GITHUB CREDS: ${GITHUB_CREDS}"
             }
         }
         stage("test"){
