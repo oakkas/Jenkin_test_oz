@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    environmnt{
+    environment{
         GITHUB_CREDS = credentials("github_creds")
     }
     stages{
